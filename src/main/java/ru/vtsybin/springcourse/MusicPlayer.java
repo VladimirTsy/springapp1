@@ -12,6 +12,16 @@ public class MusicPlayer {
         this.musicList = musicList;
     }
 
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
+    private Music music;
+
     private List<Music> musicList;
 
     private String name;
