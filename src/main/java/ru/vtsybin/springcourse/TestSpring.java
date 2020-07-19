@@ -2,6 +2,9 @@ package ru.vtsybin.springcourse;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Scanner;
+
+
 public class TestSpring {
 
     public static void main(String[] args) {
@@ -10,36 +13,33 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
+        Computer computer = context.getBean("computer", Computer.class);
 
-        ClassicalMusic classicalMusic2 = context.getBean("musicBean", ClassicalMusic.class);
+        while(true) {
 
-        System.out.println(classicalMusic.getSong());
-        System.out.println(classicalMusic.getSong());
+            System.out.println("Введите жанр музыки: ");
+            Scanner in = new Scanner(System.in);
 
-       // Music music = context.getBean("musicBean", Music.class);
-       // MusicPlayer musicPlayer = new MusicPlayer(music);
 
-      /*  MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        MusicPlayer seconfMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+            switch (in.next()) {
 
-        boolean copmarision = firstMusicPlayer == seconfMusicPlayer;
+                case "CLASSICAL":
+                    System.out.println(computer.toString(Genre.CLASSICAL));
+                    break;
+                case "ROCK":
+                    System.out.println(computer.toString(Genre.ROCK));
+                    break;
 
-        System.out.println(copmarision);
+                case "1": return;
 
-        System.out.println(firstMusicPlayer);
-        System.out.println(seconfMusicPlayer);
+            }
 
-        firstMusicPlayer.setVolue(10);
+            context.close();
 
-        System.out.println(firstMusicPlayer.getVolue());
-        System.out.println(seconfMusicPlayer.getVolue());
-*/
- /*       System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolue());*/
-
-        context.close();
+        }
 
     }
+
+
 }
